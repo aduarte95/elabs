@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../services/users/user.service';
 import { CalendarComponent } from './calendar/calendar.component';
 import { PopUpCalendarComponent } from './pop-up-calendar/pop-up-calendar.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
-    PopUpCalendarComponent
+    PopUpCalendarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
