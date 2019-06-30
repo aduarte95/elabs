@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../services/users/user.service';
+import { CalendarComponent } from './calendar/calendar.component';
+import { PopUpCalendarComponent } from './pop-up-calendar/pop-up-calendar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalendarComponent,
+    PopUpCalendarComponent
   ],
   imports: [
     BrowserModule,
