@@ -9,6 +9,7 @@ import { UserService } from '../services/users/user.service';
 import { CalendarComponent } from './calendar/calendar.component';
 import { PopUpCalendarComponent } from './pop-up-calendar/pop-up-calendar.component';
 import { HeaderComponent } from './header/header.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,11 +18,12 @@ import { HeaderComponent } from './header/header.component';
     PopUpCalendarComponent,
     HeaderComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })

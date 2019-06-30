@@ -1,0 +1,85 @@
+$primary: #007bff;
+$available: rgba(61, 153, 112, 0.32);
+$not-available: rgba(153, 57, 64, 0.27);
+$border-color: #c5c5c5;
+$not-available-cell: #d2d2d2;
+
+.container {
+  padding: 70px 0;
+  text-align: center;
+
+  .row {
+    margin-left: 6%;
+
+    .col-2 {
+      text-align: initial;
+    }
+  }
+}
+
+.dropdown-menu.show {
+  max-height: 80vh;
+  overflow: overlay;
+}
+
+.calendar-table {
+  margin-top:15px;
+}
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid $border-color;
+  padding: 8px;
+}
+
+#customers td:hover {background-color: $border-color;}
+
+#customers {
+  tr {
+    p {
+      padding-top: 8px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+
+  th {
+    border: 1px solid $border-color;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $primary;
+    color: white;
+  }
+
+  .hour-head  {
+    border: 1px solid white;
+    border-right: 1px solid $border-color;
+    background-color: white;
+  }
+
+  .hour-head:hover {
+    background-color: white;
+  }
+
+  .not-available {
+    background-color: $not-available;
+  }
+
+  .available {
+    background-color: $available;
+  }
+
+  .not-available-day {
+    background-color: $not-available-cell;
+  }
+
+  .not-available-day:hover {
+    background-color: $not-available-cell;
+  }
+}
