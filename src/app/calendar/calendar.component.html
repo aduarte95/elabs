@@ -21,7 +21,7 @@
       <div class="col-auto">
       <div class="form-group row">
           <label for="example-number-input" class="col-5 col-form-label">Día:</label>
-          <div class="col-6">
+          <div class="col-7">
               <input class="form-control" type="number"
                      [(ngModel)]="currentDay"
                      value="{{currentDay}}"
@@ -44,7 +44,7 @@
         <tr *ngFor="let hour of counter( (22 - 7) + 1); let i = index">
             <p>{{ i + 7 +':00' }}</p>
             <td *ngFor="let count of counter( 7 ); let j = index"
-                [ngClass]="{'not-available-day': j < currentDay - 1, 'available': isAvailable(i,j), 'not-available': !isAvailable(i,j)}">
+                [ngClass]="{'not-available-day': j < toWeekDay() - 1, 'available': isAvailable(i,j), 'not-available': !isAvailable(i,j)}">
             </td>
         </tr>
     </table>

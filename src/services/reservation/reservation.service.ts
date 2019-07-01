@@ -4,11 +4,11 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ReservationService {
 
   constructor(protected http: HttpClient) { }
 
-  getUsers() {
-    return this.http.get('http://localhost:51938/usuarios');
+  getReservations() {
+    return this.http.get('http://localhost:51938/reservas');
   }
 }

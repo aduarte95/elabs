@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ReservationService} from "../../services/reservation/reservation.service";
 
 @Component({
   selector: 'app-calendar',
@@ -38,11 +39,21 @@ export class CalendarComponent implements OnInit {
 
   available: boolean[][];
 
-  constructor() { }
+  constructor(protected reservationService: ReservationService) { }
 
   ngOnInit() {
-      this.setAvailable();
-      this.available[1][1] = false;
+    this.reservationService.getReservations()
+        .subscribe(
+            (data) => { // Success
+              console.log(data);
+            },
+            (error) => {
+              console.error(error);
+            }
+        );
+
+    this.setAvailable();
+    this.available[1][6] = false;
   }
 
   setCurrentMonth(index) {
@@ -72,4 +83,9 @@ export class CalendarComponent implements OnInit {
           }
       }
   }
+
+  //TODO: Hay que convertir el numero de dias a un dia del 1-7
+    toWeekDay() {
+      return 3;
+    }
 }

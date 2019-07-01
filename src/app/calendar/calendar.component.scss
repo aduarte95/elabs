@@ -1,6 +1,6 @@
 $primary: #007bff;
-$available: rgba(61, 153, 112, 0.32);
-$not-available: rgba(153, 57, 64, 0.27);
+$available: rgba(31, 154, 43, 0.64);
+$not-available: rgba(154, 32, 25, 0.64);
 $border-color: #c5c5c5;
 $not-available-cell: #d2d2d2;
 
@@ -37,9 +37,12 @@ $not-available-cell: #d2d2d2;
   padding: 8px;
 }
 
-#customers td:hover {background-color: $border-color;}
+#customers td:hover {background-color: rgba(0, 101, 201, 0.72);}
 
 #customers {
+  td:hover{
+    cursor: pointer;
+  }
   tr {
     p {
       padding-top: 8px;
@@ -81,5 +84,6 @@ $not-available-cell: #d2d2d2;
 
   .not-available-day:hover {
     background-color: $not-available-cell;
+    cursor: default;
   }
 }
