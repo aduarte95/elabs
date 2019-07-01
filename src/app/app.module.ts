@@ -7,22 +7,22 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../services/users/user.service';
 import { CalendarComponent } from './calendar/calendar.component';
-import { PopUpCalendarComponent } from './pop-up-calendar/pop-up-calendar.component';
 import { HeaderComponent } from './header/header.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
-    PopUpCalendarComponent,
     HeaderComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        NgbModule
     ],
   providers: [UserService],
   bootstrap: [AppComponent]
