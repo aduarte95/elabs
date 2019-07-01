@@ -11,7 +11,10 @@ import {NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
 export class HeaderComponent implements OnInit {
   model;
   constructor() { }
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  changeModel(model) {
+    console.log('El modeloo es')
+    console.log(model);
+  }
 }
