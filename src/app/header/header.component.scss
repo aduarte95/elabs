@@ -5,3 +5,21 @@ button.calendar, button.calendar:active {
   background-size: 23px;
   background-position: center;
 }
+
+.leftCorner{
+  height:37px;
+  width:45px;
+  border-radius: 90px 0 0 90px;
+  //margin: 2px;
+}
+
+.rightCorner{
+  height:37px;
+  width:45px;
+  border-radius: 0 90px 90px 0;
+  //margin: 2px;
+}
+
+.rectagleButton{
+  border-radius:0;
+}
