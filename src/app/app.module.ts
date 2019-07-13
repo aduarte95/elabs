@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../services/users/user.service';
+import { LabAdministratorComponent } from './lab-administrator/lab-administrator.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { HeaderComponent } from './header/header.component';
 import {FormsModule} from '@angular/forms';
@@ -14,6 +15,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    AppComponent,
+    LabAdministratorComponent,
     CalendarComponent,
     HeaderComponent
   ],
