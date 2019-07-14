@@ -2,14 +2,10 @@
   <table class="table table-bordered new-hover">
     <thead class="thead-dark">
     <tr>
+
       <th style="width: 16%" scope="col">Hora</th>
-      <th style="width: 12%" scope="col">Dia 1</th>
-      <th style="width: 12%" scope="col">Dia 2</th>
-      <th style="width: 12%" scope="col">Dia 3</th>
-      <th style="width: 12%" scope="col">Dia 4</th>
-      <th style="width: 12%" scope="col">Dia 5</th>
-      <th style="width: 12%" scope="col">Dia 6</th>
-      <th style="width: 12%" scope="col">Dia 7</th>
+       <th *ngFor="let day of weekday; let i = index" style="width: 12%" scope="col">{{weekday[(dayAsked+i)%7]}}</th>
+
     </tr>
     </thead>
     <tbody>
