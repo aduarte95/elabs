@@ -7,16 +7,17 @@
 
     <div  class="row">
         <div *ngFor="let device of devices; let i = index">
-        <div class="col-sm">
-          <ul>
-          <button type="button" class="btn btn-success correct-size" data-toggle="modal" data-target="#myModal">
-            <img src="../../assets/Images/Computer_64.png" >
-            <p>{{device}}</p>
-          </button>
-          </ul>
-        </div>
+            <div class="col-sm">
+              <ul>
+              <button type="button" class="{{status[device.eEquipo]}} correct-size" data-toggle="modal" data-target="#myModal" (click)="setCurrentDevice(i)">
+                <img *ngIf="device.tEquipo === 'Computadora'" src="../../assets/Images/Computer_64.png" >
+                  <img *ngIf="device.tEquipo === 'Video Beam'" src="../../assets/Images/Video-Beam_64.png" >
+                <p>{{device.serial}}</p>
+              </button>
+              </ul>
+            </div>
 
-    </div>
+        </div>
         <div class="col-sm">
             <ul>
                 <button type="button" class="btn btn-secondary correct-size " data-toggle="modal" data-target="#add-device">
@@ -57,8 +58,11 @@
                 <li class="list-group-item-">
                     <div class="form-check row d-flex justify-content-center">
                       <div class="col-md-3">
-                        <input type="checkbox" class="form-check-input" id="materialUnchecked">
-                        <label class="form-check-label" for="materialUnchecked">Dañada</label>
+                          <div class="custom-control custom-checkbox">
+                            <input *ngIf="devices[currentDevice].eEquipo === 0" type="checkbox" class="custom-control-input"  checked>
+                              <input *ngIf="devices[currentDevice].eEquipo !== 0" type="checkbox" class="custom-control-input"  >
+                            <label class="custom-control-label" >Dañada</label>
+                        </div>
                       </div>
                     </div>
                 </li>
@@ -69,7 +73,7 @@
                     <div class="form-group row d-flex justify-content-center">
                       <div class="col-md-4">
                         <div class="text-center">
-                          <input class="form-control" type="text" value="#2358JU45" >
+                          <input class="form-control" type="text" value="{{devices[currentDevice].serial}}" >
                         </div>
                       </div>
                     </div>
