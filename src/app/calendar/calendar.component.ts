@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ReservationService} from "../../services/reservation/reservation.service";
+import {ReservationService} from '../../services/reservation/reservation.service';
 
 @Component({
   selector: 'app-calendar',

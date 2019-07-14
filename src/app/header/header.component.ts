@@ -1,5 +1,8 @@
 import {Component, NgModule, OnInit} from '@angular/core';
 import {NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
+import {BuildsService} from '../../services/BuildService/builds.service';
+import {build$} from 'protractor/built/element';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,11 +13,41 @@ import {NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
 })
 export class HeaderComponent implements OnInit {
   model;
-  constructor() { }
-  ngOnInit() {}
+  private buildings = [];
+  private buttonTextIndice = 0;
+  constructor(protected buildService: BuildsService) { }
 
+  ngOnInit() {
+    this.buildService.getBuilds()
+        .subscribe(res => {
+          for (let b of JSON.parse(res.toString())) {
+              this.buildings.push(b.nombre);
+      }
+    });
+    console.log(this.buildings);
+  }
+  right() {
+      if (this.buttonTextIndice === this.buildings.length - 1) {
+          this.buttonTextIndice = 0;
+      } else {
+          this.buttonTextIndice += 1;
+      }
+      console.log(this.buttonTextIndice);
+  }
+    left() {
+        if (this.buttonTextIndice === 0 ) {
+            this.buttonTextIndice = this.buildings.length - 1 ;
+        } else {
+            this.buttonTextIndice -= 1;
+        }
+        console.log(this.buttonTextIndice);
+    }
   changeModel(model) {
-    console.log('El modeloo es')
+    console.log('El modelo es');
     console.log(model);
   }
+  getBuild() {
+    console.log();
+  }
+  
 }
