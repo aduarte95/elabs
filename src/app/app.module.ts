@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { InicioAdministratorComponent } from './inicio-administrator/inicio-administrator.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InicioComponent } from './inicio/inicio.component';
     CalendarComponent,
     HeaderComponent,
     InicioAdministratorComponent,
-    InicioComponent
+    InicioComponent,
+    ReservationComponent
   ],
     imports: [
         BrowserModule,
