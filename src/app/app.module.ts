@@ -11,6 +11,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { HeaderComponent } from './header/header.component';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { InicioAdministratorComponent } from './inicio-administrator/inicio-administrator.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     LabAdministratorComponent,
     CalendarComponent,
-    HeaderComponent
+    HeaderComponent,
+    InicioAdministratorComponent
   ],
     imports: [
         BrowserModule,

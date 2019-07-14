@@ -8,29 +8,40 @@ import { Component, OnInit } from '@angular/core';
 export class LabAdministratorComponent implements OnInit {
   chosenType = 0;
   currentDevice = 0;
+
   deviceType = [
       'Computadora',
       'Video Beam'
   ];
 
   devices = [
-      '#178485',
-      '#278485',
-      '#378485',
-      '#478485',
-      '#578485',
-      '#678485',
-      '#778485',
-      '#878485',
-      '#978485',
-      '#188485',
-      '#288485',
-      '#388485',
-      '#488485',
-      '#588485',
-      '#688485',
-      '#788485'
+    {serial: '#178485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#278485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#378485', tEquipo: 'Computadora', eEquipo: 0 },
+    {serial: '#478485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#578485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#678485', tEquipo: 'Computadora', eEquipo: 0 },
+    {serial: '#778485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#878485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#978485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#188485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#288485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#388485', tEquipo: 'Computadora', eEquipo: 0 },
+    {serial: '#488485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#588485', tEquipo: 'Computadora', eEquipo: 1 },
+    {serial: '#688485', tEquipo: 'Video Beam', eEquipo: 1 }
   ];
+
+  status = [
+      'btn btn-danger',
+      'btn btn-success'
+  ];
+
+  damage = [
+      'checked',
+      ''
+  ]
+
 
   constructor() { }
 
@@ -39,6 +50,10 @@ export class LabAdministratorComponent implements OnInit {
 
   setChosenType(index) {
     this.chosenType = index;
+  }
+
+  setCurrentDevice(index) {
+    this.currentDevice = index;
   }
 
 }
