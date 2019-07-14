@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.buildService.getBuilds()
         .subscribe(res => {
-          for (let b of JSON.parse(res.toString())) {
+          for (const b of JSON.parse(res.toString())) {
               this.buildings.push(b.nombre);
       }
     });
@@ -49,5 +49,5 @@ export class HeaderComponent implements OnInit {
   getBuild() {
     console.log();
   }
-  
+
 }

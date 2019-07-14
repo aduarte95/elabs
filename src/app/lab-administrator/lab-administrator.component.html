@@ -29,6 +29,18 @@
         </div>
     </div>
 
+    <hr>
+
+    <div class="row row-centered">
+        <div class="col-sm-12">
+            <ul>
+                <button type="button" style="border:0px solid black; background-color: transparent;" data-toggle="modal" data-target="#deleteLabWarning" >
+                    <img src="../../assets/Images/Eliminar_lab.jpg" style="height: 150px; width: 270px;">
+                </button>
+            </ul>
+        </div>
+    </div>
+
 
 
 
@@ -49,7 +61,7 @@
             <ul class="list-group" style="list-style-type: none">
                 <li class="list-group-item-">
                     <div class="float-right">
-                      <button type="button" data-toggle="modal" data-target="#deleteWarning" style="border:0px solid black; background-color: transparent;">
+                      <button type="button" data-toggle="modal" data-target="#deleteDeviceWarning" style="border:0px solid black; background-color: transparent;">
                         <img class="delete-device-icon" src="../../assets/Images/Delete_device_64.png">
                       </button>
                     </div>
@@ -93,7 +105,7 @@
   </div>
 
     <!-- Modal warning -->
-    <div id="deleteWarning" class="modal fade" role="dialog">
+    <div id="deleteDeviceWarning" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -182,5 +194,38 @@
         </div>
     </div>
 
+    <!-- Modal warning -->
+    <div id="deleteLabWarning" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h1 class="modal-title">Alerta</h1>
+                </div>
+
+                <div class="modal-body">
+                    <p class="text-center">¿Está seguro que quiere eliminar la/el *Inserte laboratorio*?
+
+                </div>
+
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Si</button>
+                            </div>
+                            <div class="col-sm">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
 </div>
