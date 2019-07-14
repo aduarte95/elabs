@@ -7,11 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationComponent implements OnInit {
 
+  dayAsked = 6;
+
+  weekday = [
+      'Domingo',
+      'Lunes',
+      'Martes',
+      'Miércoles',
+      'Jueves',
+      'Viernes',
+      'Sábado'
+  ];
+
   constructor() { }
 
   ngOnInit() {
-     const d = new Date();
-     console.log(d.getDay());
+    // const d = new Date();
+    // console.log(this.weekday[d.getDay()]);
+  }
+
+  changeDay(){
+
   }
 
 }
