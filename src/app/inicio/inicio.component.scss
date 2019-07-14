@@ -1,0 +1,25 @@
+.top-buffer{ margin-top: 5%;}
+
+.row-centered {
+  text-align:center;
+}
+
+.big-size{
+  height: 175px;
+  width: 275px;
+  font-size: large;
+}
+
+.mid-size{
+  height: 75px;
+  width: 175px;
+  font-size: large;
+}
+
+.vertical-center {
+  min-height: 85%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 85vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}

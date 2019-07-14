@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { InicioAdministratorComponent } from './inicio-administrator/inicio-administrator.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InicioAdministratorComponent } from './inicio-administrator/inicio-admi
     LabAdministratorComponent,
     CalendarComponent,
     HeaderComponent,
-    InicioAdministratorComponent
+    InicioAdministratorComponent,
+    InicioComponent
   ],
     imports: [
         BrowserModule,

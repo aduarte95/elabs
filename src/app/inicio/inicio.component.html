@@ -1,0 +1,21 @@
+<div class="container">
+
+
+  <div class="row top-buffer"></div>
+
+  <div class="row vertical-center">
+    <div *ngFor="let lab of labs; let i = index">
+      <div class="col-xl-4">
+        <ul>
+          <button type="button" class="{{estado[lab.estado]}} big-size" >{{lab.numer}}</button>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+</div>
