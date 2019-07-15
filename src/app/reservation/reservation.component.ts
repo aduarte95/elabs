@@ -9,6 +9,7 @@ import { CellComponent } from '../cell/cell.component';
 export class ReservationComponent implements OnInit {
 
   dayAsked = 0;
+  actualDate = new Date();
   hourMap = new Map<number, number>();
   matrix: CellComponent[][];
  obForMatrix;
@@ -89,17 +90,22 @@ export class ReservationComponent implements OnInit {
 
       for (let i = 0; i < 15; i++) {
           this.matrix[i] = [];
+          let temporalDate = new Date();
           for (let j = 0; j < 7; j++) {
+              let date = temporalDate.getFullYear() + '/' + (temporalDate.getMonth() + 1) + '/' + temporalDate.getDate();
+              // yourDate.setDate(yourDate.getDate() + 1);
               if ((j === 0) || ((j === 6) && (i >= 11))) {
                   console.log('tumama');
-                  this.obForMatrix = new CellComponent('--', j, i, 2);
+                  this.obForMatrix = new CellComponent('--', j, i, 2, date, i + 7 + ':00');
                   this.matrix[i][j] = this.obForMatrix;
               }
               if (!((j === 0) || ((j === 6) && (i >= 11)))) {
-                  this.obForMatrix = new CellComponent('Libre', j, i, 0);
+                  this.obForMatrix = new CellComponent('Libre', j, i, 0, date, i + 7 + ':00');
                   this.matrix[i][j] = this.obForMatrix;
               }
+              temporalDate.setDate(temporalDate.getDate() + 1);
           }
+
       }
       for (const response of this.responses) {
           this.beginDate = new Date(response.fecha_inicio);
@@ -110,17 +116,20 @@ export class ReservationComponent implements OnInit {
           for (let k = begin; k < end; k++) {
               let usuario = response.usuarrio;
               let row = this.hourMap.get(k);
-              this.obForMatrix = new CellComponent(usuario, dia, row, 1);
+              this.obForMatrix = new CellComponent(usuario, dia, row, 1, 'prueba', 'prueba');
               this.matrix[row][dia] = this.obForMatrix;
 
           }
       }
   }
 
-  cellCompoent(indexR, indexC) {
-      let nuevo = new CellComponent('', 1, 1, 5);
+  cellComponent(indexR, indexC) {
+      let nuevo = new CellComponent('', 1, 1, 5, '', '');
       nuevo = this.matrix[indexR][indexC];
       console.log(nuevo.status);
+      console.log(nuevo.user);
+      console.log(nuevo.date);
+      console.log(nuevo.hour);
   }
 
 

@@ -11,8 +11,34 @@
     <tbody >
     <tr  *ngFor="let hour of hours; let i = index">
       <th class="right-border-black" scope="row">{{i+7}}:00 - {{i+8}}:00</th>
-      <td (click)="this.cellCompoent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" >{{matrix[i][(dayAsked+j)%7].user}}</td>
+      <td (click)="this.cellComponent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" data-toggle="modal" data-target="#reservationModal" >{{matrix[i][(dayAsked+j)%7].user}}</td>
     </tr>
     </tbody>
   </table>
+
+  <!-- Modal warning -->
+  <div id="reservationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h1 class="modal-title">Alerta</h1>
+        </div>
+
+        <div class="modal-body">
+
+
+        </div>
+
+        <div class="modal-footer">
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
 </div>
