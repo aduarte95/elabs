@@ -11,7 +11,7 @@
     <tbody>
     <tr *ngFor="let hour of hours; let i = index">
       <th scope="row">{{i+7}}:00 - {{i+8}}:00</th>
-      <td (click)="this.cellCompoent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}}" *ngFor="let day of weekday, let j = index" >{{matrix[i][(dayAsked+j)%7].user}}</td>
+      <td (click)="this.cellCompoent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} " *ngFor="let day of weekday, let j = index" >{{matrix[i][(dayAsked+j)%7].user}}</td>
     </tr>
     </tbody>
   </table>

@@ -28,8 +28,8 @@ export class ReservationComponent implements OnInit {
   ];
 
   cTd = [
-      'table-success',
-    'table-warning'
+      'table-success green-new-hover',
+    'table-warning yellow-new-hover'
         ];
 
   hours = [

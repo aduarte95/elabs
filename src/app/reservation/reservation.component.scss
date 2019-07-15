@@ -6,6 +6,10 @@
   text-align: center;
 }
 
-.new-hover>tbody>tr>td:hover, .new-hover>tbody>tr>td:hover{
+.green-new-hover:hover, .green-new-hover:hover{
   background-color: #B5FFC8; // #B5FFC8 hover for green, hover for yellow #FFFFAA
+}
+
+.yellow-new-hover:hover, .yellow-new-hover:hover{
+  background-color: #FFFFAA; // #B5FFC8 hover for green, hover for yellow #FFFFAA
 }
