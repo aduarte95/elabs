@@ -1,5 +1,5 @@
 <div class="container'">
-  <table class="table table-bordered new-hover">
+  <table class="table table-bordered ">
     <thead class="thead-dark">
     <tr>
 
@@ -8,10 +8,10 @@
 
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let hour of hours; let i = index">
-      <th scope="row">{{i+7}}:00 - {{i+8}}:00</th>
-      <td (click)="this.cellCompoent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} " *ngFor="let day of weekday, let j = index" >{{matrix[i][(dayAsked+j)%7].user}}</td>
+    <tbody >
+    <tr  *ngFor="let hour of hours; let i = index">
+      <th class="right-border-black" scope="row">{{i+7}}:00 - {{i+8}}:00</th>
+      <td (click)="this.cellCompoent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" >{{matrix[i][(dayAsked+j)%7].user}}</td>
     </tr>
     </tbody>
   </table>

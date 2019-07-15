@@ -8,7 +8,7 @@ import { CellComponent } from '../cell/cell.component';
 })
 export class ReservationComponent implements OnInit {
 
-  dayAsked = 3;
+  dayAsked = 0;
   hourMap = new Map<number, number>();
   matrix: CellComponent[][];
  obForMatrix;
@@ -29,7 +29,8 @@ export class ReservationComponent implements OnInit {
 
   cTd = [
       'table-success green-new-hover',
-    'table-warning yellow-new-hover'
+    'table-warning yellow-new-hover',
+      'table-secondary'
         ];
 
   hours = [
@@ -89,8 +90,15 @@ export class ReservationComponent implements OnInit {
       for (let i = 0; i < 15; i++) {
           this.matrix[i] = [];
           for (let j = 0; j < 7; j++) {
-              this.obForMatrix = new CellComponent('Libre', j, i, 0 );
-              this.matrix[i][j] = this.obForMatrix;
+              if ((j === 0) || ((j === 6) && (i >= 11))) {
+                  console.log('tumama');
+                  this.obForMatrix = new CellComponent('--', j, i, 2);
+                  this.matrix[i][j] = this.obForMatrix;
+              }
+              if (!((j === 0) || ((j === 6) && (i >= 11)))) {
+                  this.obForMatrix = new CellComponent('Libre', j, i, 0);
+                  this.matrix[i][j] = this.obForMatrix;
+              }
           }
       }
       for (const response of this.responses) {
@@ -106,10 +114,6 @@ export class ReservationComponent implements OnInit {
               this.matrix[row][dia] = this.obForMatrix;
 
           }
-          console.log('hola' + this.matrix[1][1].status);
-
-
-
       }
   }
 
