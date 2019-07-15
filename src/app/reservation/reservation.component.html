@@ -11,28 +11,72 @@
     <tbody >
     <tr  *ngFor="let hour of hours; let i = index">
       <th class="right-border-black" scope="row">{{i+7}}:00 - {{i+8}}:00</th>
-      <td (click)="this.cellComponent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" data-toggle="modal" data-target="#reservationModal" >{{matrix[i][(dayAsked+j)%7].user}}</td>
+      <td (click)="this.cellComponent(i,(this.dayAsked+j)%7)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" data-toggle="modal" data-target="#reservationModal" >{{matrix[i][(dayAsked+j)%7].user}}</td>
     </tr>
     </tbody>
   </table>
 
-  <!-- Modal warning -->
+  <!-- Modal reservation -->
   <div id="reservationModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
 
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
 
-          <h1 class="modal-title">Alerta</h1>
+          <h1 class="modal-title">Reserva</h1>
         </div>
 
         <div class="modal-body">
+
+          <ul>
+            <li>
+              <div class="text-center">
+                <div class="row" >
+                  <label for="fch-in">Fecha Inicio:</label>
+                  <div class="col-sm-3" id="fch-in" >
+                    <input type="text" class="form-control" value="{{actualCellDate}}">
+                  </div>
+                  <label for="fch-fin">Fecha Fin:</label>
+                  <div class="col-sm-3" id="fch-fin">
+                    <input type="text" class="form-control" value="{{actualCellDate}}">
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <br>
+
+            <li>
+              <div class="text-center">
+                <div class="row" >
+                  <label for="hr-in">&nbsp;Hora Inicio:</label>
+                  <div class="col-sm-3" id="hr-in">
+                    <input type="text" class="form-control" value="{{actualCellHour}}">
+                  </div>
+                  <label for="hr-fin">&nbsp;&nbsp;Hora Fin: </label>
+                  <div class="col-sm-3" id="hr-fin">
+                    <input type="text" class="form-control" >
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
 
 
         </div>
 
         <div class="modal-footer">
+          <div class="text-center">
+            <div class="row">
+              <div class="col-sm">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Reservar</button>
+              </div>
+              <div class="col-sm">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+          </div>
 
         </div>
 

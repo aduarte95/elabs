@@ -8,13 +8,16 @@ import { CellComponent } from '../cell/cell.component';
 })
 export class ReservationComponent implements OnInit {
 
-  dayAsked = 0;
-  actualDate = new Date();
+  dayAsked = 1;
+
   hourMap = new Map<number, number>();
   matrix: CellComponent[][];
  obForMatrix;
  beginDate;
  endDate;
+
+ actualCellDate;
+ actualCellHour;
 
 
 
@@ -72,6 +75,7 @@ export class ReservationComponent implements OnInit {
       this.fillCellsToColour();
       const hoy = new Date();
       this.dayAsked = hoy.getDay();
+
   }
 
   fillMap() {
@@ -100,7 +104,7 @@ export class ReservationComponent implements OnInit {
                   this.matrix[i][j] = this.obForMatrix;
               }
               if (!((j === 0) || ((j === 6) && (i >= 11)))) {
-                  this.obForMatrix = new CellComponent('Libre', j, i, 0, date, i + 7 + ':00');
+                  this.obForMatrix = new CellComponent('Libre',  j, i, 0, date, i + 7 + ':00');
                   this.matrix[i][j] = this.obForMatrix;
               }
               temporalDate.setDate(temporalDate.getDate() + 1);
@@ -126,6 +130,8 @@ export class ReservationComponent implements OnInit {
   cellComponent(indexR, indexC) {
       let nuevo = new CellComponent('', 1, 1, 5, '', '');
       nuevo = this.matrix[indexR][indexC];
+      this.actualCellDate = nuevo.date;
+      this.actualCellHour = nuevo.hour;
       console.log(nuevo.status);
       console.log(nuevo.user);
       console.log(nuevo.date);
