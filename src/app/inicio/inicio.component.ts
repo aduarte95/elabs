@@ -1,29 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import {HeaderTalkerService} from '../../services/headerTalker/header-talker.service';
+import {LabsServiceService} from '../../services/LabsService/labs-service.service';
+
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.scss']
+  styleUrls: ['./inicio.component.scss'],
 })
 export class InicioComponent implements OnInit {
 
-  labs = [
-    {numer: 102, capacidad: 25, estado: 0},
-    {numer: 104, capacidad: 25, estado: 0},
-    {numer: 105, capacidad: 25, estado: 1},
-    {numer: 106, capacidad: 25, estado: 0},
-    {numer: 107, capacidad: 25, estado: 2}
-  ];
+  estado = new Map<string, string>();
+  private labs = [];
 
-  estado = [
-    'btn btn-success',
-    'btn btn-danger',
-    'btn btn-warning',
-  ]
-
-  constructor() { }
+  constructor(private headerTalkerService: HeaderTalkerService, private labService: LabsServiceService ) { }
 
   ngOnInit() {
+    this.estado.set('Disponible', 'btn btn-success');
+    this.estado.set('Mantenimiento', 'btn btn-warning');
+    this.estado.set('Ocupado' , 'btn btn-warning');
+    if (this.headerTalkerService.subsBar === undefined) {
+      this.headerTalkerService.subsBar = this.headerTalkerService.sendBuildsToInitScreen.
+      subscribe((build: string) => {
+        this.changeLab(build);
+      });
+    }
   }
 
+  changeLab(build: string) {
+    this.labs = [];
+    this.labService.getLabsByBuild(build)
+        .subscribe(res => {
+              for (const l of JSON.parse(res.toString())) {
+                console.log('En el for');
+                console.log(l);
+                this.labs.push({numer: l.numero, capacidad: l.capacidad, estado: l.estado_fk});
+              }
+            }
+        );
+  }
 }

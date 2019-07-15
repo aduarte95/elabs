@@ -14,6 +14,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { InicioAdministratorComponent } from './inicio-administrator/inicio-administrator.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import {HeaderTalkerService} from '../services/headerTalker/header-talker.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ReservationComponent } from './reservation/reservation.component';
         FormsModule,
         NgbModule
     ],
-  providers: [UserService],
+  providers: [UserService,
+  HeaderTalkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

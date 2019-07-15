@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {HeaderTalkerService} from '../../services/headerTalker/header-talker.service';
+
+
 
 @Component({
   selector: 'app-inicio-administrator',
@@ -19,11 +22,20 @@ export class InicioAdministratorComponent implements OnInit {
       'btn btn-success',
       'btn btn-danger',
       'btn btn-warning',
-  ]
+  ];
 
-  constructor() { }
+  constructor(private headerTalkerService: HeaderTalkerService) { }
 
   ngOnInit() {
+    if (this.headerTalkerService.subsBar === undefined) {
+      this.headerTalkerService.subsBar = this.headerTalkerService.sendBuildsToInitScreen.
+      subscribe(() => {
+        this.changeLab();
+      });
+    }
   }
 
+  changeLab() {
+    alert('hola');
+  }
 }
