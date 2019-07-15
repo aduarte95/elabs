@@ -69,7 +69,7 @@ export class ReservationComponent implements OnInit {
     // console.log(this.weekday[d.getDay()]);
       this.fillMap();
       this.fillCellsToColour();
-      let hoy = new Date();
+      const hoy = new Date();
       this.dayAsked = hoy.getDay();
   }
 
@@ -117,8 +117,8 @@ export class ReservationComponent implements OnInit {
       }
   }
 
-  cellCompoent(indexR, indexC){
-      let nuevo = new CellComponent('',1,1,5);
+  cellCompoent(indexR, indexC) {
+      let nuevo = new CellComponent('', 1, 1, 5);
       nuevo = this.matrix[indexR][indexC];
       console.log(nuevo.status);
   }

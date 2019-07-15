@@ -4,7 +4,7 @@
     <tr>
 
       <th style="width: 16%" scope="col">Hora</th>
-       <th *ngFor="let day of weekday; let i = index" style="width: 12%" scope="col">{{weekday[(dayAsked+i)%7]}}</th>
+       <th class="bottom-border-black" *ngFor="let day of weekday; let i = index" style="width: 12%" scope="col">{{weekday[(dayAsked+i)%7]}}</th>
 
     </tr>
     </thead>

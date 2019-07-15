@@ -7,7 +7,7 @@
 }
 
 .green-new-hover:hover, .green-new-hover:hover{
-  background-color: #B5FFC8; // #B5FFC8 hover for green, hover for yellow #FFFFAA
+  background-color: #CAFFD8; // #B5FFC8 hover for green, hover for yellow #FFFFAA
 }
 
 .yellow-new-hover:hover, .yellow-new-hover:hover{
@@ -22,4 +22,9 @@
 .right-border-black{
   boder-widows: thin;
   border-right: black;
+}
+
+.bottom-border-black{
+  boder-widows: thin;
+  border-bottom: black;
 }
