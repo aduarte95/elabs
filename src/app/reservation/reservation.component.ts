@@ -15,6 +15,7 @@ export class ReservationComponent implements OnInit {
  obForMatrix;
  beginDate;
  endDate;
+ validDate = [];
 
  actualCellDate;
  actualCellHour;
@@ -74,7 +75,8 @@ export class ReservationComponent implements OnInit {
       this.fillMap();
       this.fillCellsToColour();
       const hoy = new Date();
-      this.dayAsked = 6;
+      console.log(hoy.getDate());
+      this.dayAsked = hoy.getDay();
 
   }
 
@@ -100,13 +102,17 @@ export class ReservationComponent implements OnInit {
           for (let j = 0; j < 7; j++) {
               let date = temporalDate.getFullYear() + '/' + (temporalDate.getMonth() + 1) + '/' + temporalDate.getDate();
               // yourDate.setDate(yourDate.getDate() + 1);
+              this.validDate[j] = date;
+              console.log(this.validDate[j]);
+              
+
               if ((j === 0) || ((j === 6) && (i >= 11))) {
-                  console.log('tumama');
-                  this.obForMatrix = new Cell('--', j, i, 2, date, i + 7 + ':00');
+
+                  this.obForMatrix = new Cell('--', temporalDate.getDay(), i, 2, date, i + 7 + ':00');
                   this.matrix[i][j] = this.obForMatrix;
               }
               if (!((j === 0) || ((j === 6) && (i >= 11)))) {
-                  this.obForMatrix = new Cell('Libre',  j, i, 0, date, i + 7 + ':00');
+                  this.obForMatrix = new Cell('Libre',  temporalDate.getDay(), i, 0, date, i + 7 + ':00');
                   this.matrix[i][j] = this.obForMatrix;
               }
               temporalDate.setDate(temporalDate.getDate() + 1);
@@ -122,8 +128,10 @@ export class ReservationComponent implements OnInit {
           for (let k = begin; k < end; k++) {
               let usuario = response.usuarrio;
               let row = this.hourMap.get(k);
-              this.obForMatrix = new Cell(usuario, dia, row, 1, 'prueba', 'prueba');
-              this.matrix[row][dia] = this.obForMatrix;
+              if(this.validDate.includes(this.getDayFormat(this.beginDate))) {
+                  this.obForMatrix = new Cell(usuario, dia, row, 1, 'prueba', 'prueba');
+                  this.matrix[row][dia] = this.obForMatrix;
+              }
 
           }
       }
@@ -139,6 +147,12 @@ export class ReservationComponent implements OnInit {
       console.log(nuevo.date);
       console.log(nuevo.hour);
   }
+
+  getDayFormat(date) {
+      let formatedDate = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+      console.log(formatedDate);
+      return formatedDate;
+}
 
 
 

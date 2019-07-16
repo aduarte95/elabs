@@ -11,7 +11,7 @@
     <tbody >
     <tr  *ngFor="let hour of hours; let i = index">
       <th class="right-border-black" scope="row">{{i+7}}:00 - {{i+8}}:00</th>
-      <td (click)="this.cellComponent(i,(this.dayAsked+j)%7)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" data-toggle="modal" data-target="#reservationModal" >{{matrix[i][(dayAsked+j)%7].user}}</td>
+      <td (click)="this.cellComponent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" data-toggle="modal" data-target="#reservationModal" >{{matrix[i][(dayAsked+j)%7].user}}</td>
     </tr>
     </tbody>
   </table>
@@ -35,11 +35,11 @@
                 <div class="row" >
                   <label for="fch-in">Fecha Inicio:</label>
                   <div class="col-sm-3" id="fch-in" >
-                    <input type="text" class="form-control" value="{{actualCellDate}}">
+                    <textarea type="text" class="form-control" value="{{actualCellDate}}"></textarea>
                   </div>
                   <label for="fch-fin">Fecha Fin:</label>
                   <div class="col-sm-3" id="fch-fin">
-                    <input type="text" class="form-control" value="{{actualCellDate}}">
+                    <textarea type="text" class="form-control" value="{{actualCellDate}}"></textarea>
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@
                 <div class="row" >
                   <label for="hr-in">&nbsp;Hora Inicio:</label>
                   <div class="col-sm-3" id="hr-in">
-                    <input type="text" class="form-control" value="{{actualCellHour}}">
+                    <textarea type="text" class="form-control" value="{{actualCellHour}}"></textarea>
                   </div>
                   <label for="hr-fin">&nbsp;&nbsp;Hora Fin: </label>
                   <div class="col-sm-3" id="hr-fin">
