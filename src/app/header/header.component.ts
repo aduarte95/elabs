@@ -14,8 +14,8 @@ import {HeaderTalkerService} from '../../services/headerTalker/header-talker.ser
 })
 export class HeaderComponent implements OnInit {
   model;
-  private buildings = [];
-  private buttonTextIndice = 0;
+  public buildings = [];
+  public buttonTextIndice = 0;
   constructor(protected buildService: BuildsService,
               private headerTalkerService: HeaderTalkerService) { }
 

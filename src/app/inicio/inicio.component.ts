@@ -11,7 +11,7 @@ import {LabsServiceService} from '../../services/LabsService/labs-service.servic
 export class InicioComponent implements OnInit {
 
   estado = new Map<string, string>();
-  private labs = [];
+  public labs = [];
 
   constructor(private headerTalkerService: HeaderTalkerService, private labService: LabsServiceService ) { }
 

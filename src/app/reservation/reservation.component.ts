@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CellComponent } from '../cell/cell.component';
+import { Component,  OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-reservation',
@@ -11,7 +11,7 @@ export class ReservationComponent implements OnInit {
   dayAsked = 1;
 
   hourMap = new Map<number, number>();
-  matrix: CellComponent[][];
+  matrix: Cell[][];
  obForMatrix;
  beginDate;
  endDate;
@@ -74,9 +74,11 @@ export class ReservationComponent implements OnInit {
       this.fillMap();
       this.fillCellsToColour();
       const hoy = new Date();
-      this.dayAsked = hoy.getDay();
+      this.dayAsked = 6;
 
   }
+
+
 
   fillMap() {
     for (let i = 0; i < 15; i++) {
@@ -100,11 +102,11 @@ export class ReservationComponent implements OnInit {
               // yourDate.setDate(yourDate.getDate() + 1);
               if ((j === 0) || ((j === 6) && (i >= 11))) {
                   console.log('tumama');
-                  this.obForMatrix = new CellComponent('--', j, i, 2, date, i + 7 + ':00');
+                  this.obForMatrix = new Cell('--', j, i, 2, date, i + 7 + ':00');
                   this.matrix[i][j] = this.obForMatrix;
               }
               if (!((j === 0) || ((j === 6) && (i >= 11)))) {
-                  this.obForMatrix = new CellComponent('Libre',  j, i, 0, date, i + 7 + ':00');
+                  this.obForMatrix = new Cell('Libre',  j, i, 0, date, i + 7 + ':00');
                   this.matrix[i][j] = this.obForMatrix;
               }
               temporalDate.setDate(temporalDate.getDate() + 1);
@@ -120,7 +122,7 @@ export class ReservationComponent implements OnInit {
           for (let k = begin; k < end; k++) {
               let usuario = response.usuarrio;
               let row = this.hourMap.get(k);
-              this.obForMatrix = new CellComponent(usuario, dia, row, 1, 'prueba', 'prueba');
+              this.obForMatrix = new Cell(usuario, dia, row, 1, 'prueba', 'prueba');
               this.matrix[row][dia] = this.obForMatrix;
 
           }
@@ -128,7 +130,7 @@ export class ReservationComponent implements OnInit {
   }
 
   cellComponent(indexR, indexC) {
-      let nuevo = new CellComponent('', 1, 1, 5, '', '');
+      let nuevo = new Cell('', 1, 1, 5, '', '');
       nuevo = this.matrix[indexR][indexC];
       this.actualCellDate = nuevo.date;
       this.actualCellHour = nuevo.hour;
@@ -141,5 +143,28 @@ export class ReservationComponent implements OnInit {
 
 
 
+
+}
+
+class Cell {
+    user;
+
+    day;
+
+    line;
+
+    status;
+
+    date;
+    hour;
+
+    constructor(public usuario: string, public dia: number, public fila: number, public estado: number, public fecha: string, public hora: string ) {
+        this.user = usuario;
+        this.day = dia;
+        this.line = fila;
+        this.status = estado;
+        this.date = fecha;
+        this.hour = hora;
+    }
 
 }
