@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(protected buildService: BuildsService,
               private headerTalkerService: HeaderTalkerService) { }
 
-  ngOnInit() {
+    ngOnInit() {
     this.buildService.getBuilds()
           .subscribe(res => {
                   for (const b of JSON.parse(res.toString())) {
@@ -28,16 +28,16 @@ export class HeaderComponent implements OnInit {
                   this.sendBuildsToComponents();
               }
           );
-  }
-  right() {
+    }
+    right() {
       if (this.buttonTextIndice === this.buildings.length - 1) {
           this.buttonTextIndice = 0;
       } else {
           this.buttonTextIndice += 1;
       }
       this.sendBuildsToComponents();
-  }
-  left() {
+    }
+    left() {
         if (this.buttonTextIndice === 0 ) {
             this.buttonTextIndice = this.buildings.length - 1 ;
         } else {
