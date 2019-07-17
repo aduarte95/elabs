@@ -36,7 +36,7 @@ export class LogInComponent implements OnInit {
       this.notUser = false;
 
     }
-    
+
     if ((this.password === undefined) || (this.password === '')) {
       this.notPassword = false;
 
