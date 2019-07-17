@@ -14,6 +14,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { InicioAdministratorComponent } from './inicio-administrator/inicio-administrator.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ReservationComponent } from './reservation/reservation.component';
     HeaderComponent,
     InicioAdministratorComponent,
     InicioComponent,
-    ReservationComponent
+    ReservationComponent,
+    SignUpComponent,
+    LogInComponent
 
   ],
     imports: [
