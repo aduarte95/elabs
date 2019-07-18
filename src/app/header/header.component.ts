@@ -1,7 +1,6 @@
 import {Component, NgModule, OnInit} from '@angular/core';
 import {NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
 import {BuildsService} from '../../services/BuildService/builds.service';
-import {build$} from 'protractor/built/element';
 import {HeaderTalkerService} from '../../services/headerTalker/header-talker.service';
 
 @Component({

@@ -74,7 +74,7 @@ actualLab;
   ngOnInit() {
     // const d = new Date();
     // console.log(this.weekday[d.getDay()]);
-      let numberLab = parseInt (this.route.snapshot.paramMap.get('numeroLab'));
+      let numberLab = parseInt(this.route.snapshot.paramMap.get('numeroLab'));
      // let capacidad = parseInt (this.route.snapshot.paramMap.get('capacidad'));
       this.actualLab = numberLab;
 
