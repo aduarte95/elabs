@@ -23,6 +23,9 @@ export class ReservationComponent implements OnInit {
 
 actualLab;
 
+endHour;
+showEndHour;
+
 
   weekday = [
       'Domingo',
@@ -41,21 +44,21 @@ actualLab;
         ];
 
   hours = [
-      {hour: '7:00', row: 0},
-      {hour: '8:00', row: 1},
-      {hour: '9:00', row: 2},
-      {hour: '10:00', row: 3},
-      {hour: '11:00', row: 4},
-      {hour: '12:00', row: 5},
-      {hour: '13:00', row: 6},
-      {hour: '14:00', row: 7},
-      {hour: '15:00', row: 8},
-      {hour: '16:00', row: 9},
-      {hour: '17:00', row: 10},
-      {hour: '18:00', row: 11},
-      {hour: '19:00', row: 12},
-      {hour: '20:00', row: 13},
-      {hour: '21:00', row: 14}
+      {hour: '8:00', hourEnd: 8},
+      {hour: '9:00', hourEnd: 9},
+      {hour: '10:00', hourEnd: 10},
+      {hour: '11:00', hourEnd: 11},
+      {hour: '12:00', hourEnd: 12},
+      {hour: '13:00', hourEnd: 13},
+      {hour: '14:00', hourEnd: 14},
+      {hour: '15:00', hourEnd: 15},
+      {hour: '16:00', hourEnd: 16},
+      {hour: '17:00', hourEnd: 17},
+      {hour: '18:00', hourEnd: 18},
+      {hour: '19:00', hourEnd: 19},
+      {hour: '20:00', hourEnd: 20},
+      {hour: '21:00', hourEnd: 21},
+      {hour: '22:00', hourEnd: 22}
   ];
 
   responses = [  // prueba de respuestas de base de datos
@@ -116,11 +119,11 @@ actualLab;
 
               if ((j === 0) || ((j === 6) && (i >= 11))) {
 
-                  this.obForMatrix = new Cell('--', temporalDate.getDay(), i, 2, date, i + 7 + ':00');
+                  this.obForMatrix = new Cell('--', temporalDate.getDay(), i, 2, date, i + 7 );
                   this.matrix[i][j] = this.obForMatrix;
               }
               if (!((j === 0) || ((j === 6) && (i >= 11)))) {
-                  this.obForMatrix = new Cell('Libre',  temporalDate.getDay(), i, 0, date, i + 7 + ':00');
+                  this.obForMatrix = new Cell('Libre',  temporalDate.getDay(), i, 0, date, i + 7 );
                   this.matrix[i][j] = this.obForMatrix;
               }
               temporalDate.setDate(temporalDate.getDate() + 1);
@@ -138,7 +141,7 @@ actualLab;
               let row = this.hourMap.get(k);
               if (this.validDate.includes(this.getFormatedDate(this.beginDate))) {
                   console.log('tumama');
-                  this.obForMatrix = new Cell(usuario, dia, row, 1, 'prueba', 'prueba');
+                  this.obForMatrix = new Cell(usuario, dia, row, 1, 'prueba', 0);
                   this.matrix[row][dia] = this.obForMatrix;
                   console.log(this.matrix[row][dia].status);
               }
@@ -148,11 +151,12 @@ actualLab;
   }
 
   cellComponent(indexR, indexC) {
-      let nuevo = new Cell('', 1, 1, 5, '', '');
+      let nuevo = new Cell('', 1, 1, 5, '', 0);
       nuevo = this.matrix[indexR][indexC];
       console.log(nuevo.usuario);
       this.actualCellDate = nuevo.date;
       this.actualCellHour = nuevo.hour;
+      this.endHour = this.actualCellHour+1;
 
   }
 
@@ -163,6 +167,11 @@ actualLab;
       return formatedDate;
 
 
+}
+
+setEndHour (hour){
+      this.endHour = hour+8;
+      console.log(this.endHour);
 }
 
 
@@ -183,7 +192,7 @@ class Cell {
     date;
     hour;
 
-    constructor(public usuario: string, public dia: number, public fila: number, public estado: number, public fecha: string, public hora: string ) {
+    constructor(public usuario: string, public dia: number, public fila: number, public estado: number, public fecha: string, public hora: number ) {
         this.user = usuario;
         this.day = dia;
         this.line = fila;
