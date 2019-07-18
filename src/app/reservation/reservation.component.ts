@@ -1,4 +1,5 @@
 import { Component,  OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ReservationComponent implements OnInit {
  actualCellDate;
  actualCellHour;
 
-
+actualLab;
+labCapacity;
 
   weekday = [
       'Domingo',
@@ -67,15 +69,21 @@ export class ReservationComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     // const d = new Date();
     // console.log(this.weekday[d.getDay()]);
+      let numberLab = parseInt (this.route.snapshot.paramMap.get('numeroLab'));
+     // let capacidad = parseInt (this.route.snapshot.paramMap.get('capacidad'));
+      this.actualLab = numberLab;
+
+      console.log(this.actualLab);
+
       this.fillMap();
       this.fillCellsToColour();
       const hoy = new Date();
-      console.log(hoy.getDate());
+
       this.dayAsked = hoy.getDay();
 
   }
@@ -103,8 +111,7 @@ export class ReservationComponent implements OnInit {
               let date = temporalDate.getFullYear() + '/' + (temporalDate.getMonth() + 1) + '/' + temporalDate.getDate();
               // yourDate.setDate(yourDate.getDate() + 1);
               this.validDate[j] = date;
-              console.log(this.validDate[j]);
-              
+
 
               if ((j === 0) || ((j === 6) && (i >= 11))) {
 
@@ -142,16 +149,13 @@ export class ReservationComponent implements OnInit {
       nuevo = this.matrix[indexR][indexC];
       this.actualCellDate = nuevo.date;
       this.actualCellHour = nuevo.hour;
-      console.log(nuevo.status);
-      console.log(nuevo.user);
-      console.log(nuevo.date);
-      console.log(nuevo.hour);
+
   }
 
   getFormatedDate(date) {
-      let formatedDate = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
-      console.log(formatedDate);
-      return formatedDate;
+      return date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+
+
 }
 
 

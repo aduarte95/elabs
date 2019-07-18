@@ -1,0 +1,35 @@
+<div class="container align-content-center vertical-center">
+  <div class="card " style="width: 500px;">
+    <div class="card-header">
+      <h5 class="card-title" style="text-align: center">Registro</h5>
+    </div>
+    <form (submit)="this.onSubmit">
+      <div class="card-body">
+        <input [(ngModel)]="user" name="usuario" type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
+        <input [(ngModel)]="name" name="nombre" type="text"  class="form-control" placeholder="Nombre" required>
+        <input [(ngModel)]="password" name="contrasenha"  type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+        <input [(ngModel)]="repeatPassword" name="rContrasenha"  type="password" class="form-control" placeholder="Repita Contraseña" required>
+
+        <br>
+
+        <div class="checkbox mb-3 ">
+          <label>
+            <ul>
+              <span>
+                <input [(ngModel)]="isProfessor" name="profesor" type="checkbox" value="Profesor"> Profesor
+                </span>
+
+              <span>
+                <input [(ngModel)]="isAdmin" name="administrador" type="checkbox" value="Administrador"> Administrador
+                </span>
+            </ul>
+          </label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+
+
+      </div>
+    </form>
+  </div>
+</div>

@@ -15,7 +15,8 @@ import { InicioAdministratorComponent } from './inicio-administrator/inicio-admi
 import { InicioComponent } from './inicio/inicio.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { RouterModule, Routes} from '@angular/router';
+import { RegistrationComponent } from './registration/registration.component';
+
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { RouterModule, Routes} from '@angular/router';
     InicioAdministratorComponent,
     InicioComponent,
     ReservationComponent,
-    LogInComponent
+    LogInComponent,
+    RegistrationComponent
 
   ],
     imports: [
@@ -37,12 +39,7 @@ import { RouterModule, Routes} from '@angular/router';
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
-        NgbModule,
-        RouterModule.forRoot([
-            {path: 'inicio', component: InicioComponent},
-            {path: 'reservacion', component: ReservationComponent},
-            {path: 'lab-administrador', component: LabAdministratorComponent}
-        ])
+        NgbModule
     ],
   providers: [UserService],
   bootstrap: [AppComponent]

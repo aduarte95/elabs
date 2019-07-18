@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {HeaderTalkerService} from '../../services/headerTalker/header-talker.service';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,13 +18,15 @@ export class InicioAdministratorComponent implements OnInit {
     {numer: 107, capacidad: 25, estado: 2}
   ];
 
+
+
   estado = [
       'btn btn-success',
       'btn btn-danger',
       'btn btn-warning',
   ];
 
-  constructor(private headerTalkerService: HeaderTalkerService) { }
+  constructor(private headerTalkerService: HeaderTalkerService, private router: Router) { }
 
   ngOnInit() {
     if (this.headerTalkerService.subsBar === undefined) {
@@ -38,4 +40,10 @@ export class InicioAdministratorComponent implements OnInit {
   changeLab() {
     alert('hola');
   }
+
+  passToReservation(lab) {
+    this.router.navigate(['reservacion', lab]);
+
+  }
+
 }
