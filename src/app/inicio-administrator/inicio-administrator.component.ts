@@ -29,12 +29,10 @@ export class InicioAdministratorComponent implements OnInit {
   constructor(private headerTalkerService: HeaderTalkerService, private router: Router) { }
 
   ngOnInit() {
-    if (this.headerTalkerService.subsBar === undefined) {
-      this.headerTalkerService.subsBar = this.headerTalkerService.sendBuildsToInitScreen.
+      this.headerTalkerService.sendBuildsToInitScreen.
       subscribe(() => {
         this.changeLab();
       });
-    }
   }
 
   changeLab() {

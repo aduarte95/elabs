@@ -22,7 +22,7 @@
     <div>
       <img src="../../assets/Images/building2.png">
       <button type="button" class="btn btn-light leftCorner" (click)="left()"><img src="../../assets/Images/lefArrow.png"></button>
-      <button type="button" class="btn btn-light rectagleButton">{{this.buildings[this.buttonTextIndice]}}</button>
+      <button type="button" class="btn btn-light rectagleButton">{{this.getButtonText()}}</button>
       <button type="button" class="btn btn-light rightCorner" (click)="right()"><img src="../../assets/Images/rightArrow.png"></button>
     </div>
     <div class="col-sm"></div>

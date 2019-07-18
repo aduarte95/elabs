@@ -13,23 +13,29 @@ import {HeaderTalkerService} from '../../services/headerTalker/header-talker.ser
 })
 export class HeaderComponent implements OnInit {
   model;
-  public buildings = [];
+  private child = 0;
+  //public buildings = [];
+  public data = [];
   public buttonTextIndice = 0;
   constructor(protected buildService: BuildsService,
-              private headerTalkerService: HeaderTalkerService) { }
+              protected headerTalkerService: HeaderTalkerService ) { }
 
     ngOnInit() {
     this.buildService.getBuilds()
-          .subscribe(res => {
-                  for (const b of JSON.parse(res.toString())) {
-                      this.buildings.push(b.nombre);
+          .subscribe(builds => {
+                  for (const b of JSON.parse(builds.toString())) {
+                      this.data.push(b.nombre);
                   }
                   this.sendBuildsToComponents();
               }
           );
-    }
+    this.headerTalkerService.changeButtonCarousel.
+        subscribe(async (request: object) => {
+            this.defineCarouselContent(request);
+        });
+  }
     right() {
-      if (this.buttonTextIndice === this.buildings.length - 1) {
+      if (this.buttonTextIndice === this.data.length - 1) {
           this.buttonTextIndice = 0;
       } else {
           this.buttonTextIndice += 1;
@@ -38,17 +44,41 @@ export class HeaderComponent implements OnInit {
     }
     left() {
         if (this.buttonTextIndice === 0 ) {
-            this.buttonTextIndice = this.buildings.length - 1 ;
+            this.buttonTextIndice = this.data.length - 1 ;
         } else {
             this.buttonTextIndice -= 1;
         }
         this.sendBuildsToComponents();
   }
-  changeModel(model) {
 
+    defineCarouselContent(request) {
+
+      switch (request.type ) {
+          case 0:
+              this.child = 0;
+              break;
+          case 1:
+              this.child = 1;
+              this.data = request.labs;
+              this.buttonTextIndice = request.indice;
+              break;
+      }
   }
+
+
     sendBuildsToComponents() {
-      console.log(this.buildings[this.buttonTextIndice]);
-      this.headerTalkerService.sendBuilds(this.buildings[this.buttonTextIndice]);
+      this.headerTalkerService.sendBuilds(this.data[this.buttonTextIndice]);
+    }
+
+
+    getButtonText() {
+        switch (this.child ) {
+            case 0:
+                return this.data[this.buttonTextIndice];
+                break;
+            case 1:
+                return this.data[this.buttonTextIndice].numer;
+                break;
+        }
     }
 }

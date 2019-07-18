@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component,  OnInit} from '@angular/core';
 import {HeaderTalkerService} from '../../services/headerTalker/header-talker.service';
 import {LabsServiceService} from '../../services/LabsService/labs-service.service';
 import {ReservationService} from '../../services/reservation/reservation.service';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -19,20 +19,20 @@ export class InicioComponent implements OnInit {
   constructor(private headerTalkerService: HeaderTalkerService,
               private labService: LabsServiceService,
               private reservationService: ReservationService,
-              private router: Router) { }
+              private router: Router) {
+
+  }
 
   ngOnInit() {
-    this.estado.set('Disponible', 'btn btn-success');
-    this.estado.set('Mantenimiento', 'btn btn-warning');
-    this.estado.set('Ocupado' , 'btn btn-warning');
-    if (this.headerTalkerService.subsBar === undefined) {
-      this.headerTalkerService.subsBar = this.headerTalkerService.sendBuildsToInitScreen.
+      this.headerTalkerService.labsTalks(0);
+      this.estado.set('Disponible', 'btn btn-success');
+      this.estado.set('Mantenimiento', 'btn btn-warning');
+      this.estado.set('Ocupado' , 'btn btn-warning');
+      this.headerTalkerService.sendBuildsToInitScreen.
       subscribe(async (build: string) => {
          this.changeLab(build);
       });
-    }
   }
-
   changeLab(build: string) {
     this.labs = [];
     this.getReservations(2019, 6, 24, 10).then(() => {
@@ -44,7 +44,7 @@ export class InicioComponent implements OnInit {
                   if (!this.reservations.has(l.numero)) {
                     this.labs.push({numer: l.numero, capacidad: l.capacidad, estado: l.estado_fk});
                   }
-                }
+            }
               }
           );
         }
@@ -71,7 +71,7 @@ export class InicioComponent implements OnInit {
   }
 
     passToReservation(lab) {
-        this.router.navigate(['reservacion', lab]);
-
+      this.headerTalkerService.reservationsTalks(1, this.labs, lab);
+      this.router.navigate(['reservacion', lab]);
     }
 }
