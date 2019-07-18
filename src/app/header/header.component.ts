@@ -2,6 +2,7 @@ import {Component, NgModule, OnInit} from '@angular/core';
 import {NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
 import {BuildsService} from '../../services/BuildService/builds.service';
 import {HeaderTalkerService} from '../../services/headerTalker/header-talker.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,11 +15,14 @@ import {HeaderTalkerService} from '../../services/headerTalker/header-talker.ser
 export class HeaderComponent implements OnInit {
   model;
   private child = 0;
-  //public buildings = [];
+  // public buildings = [];
   public data = [];
   public buttonTextIndice = 0;
+  isLoged = true;
+  isAdmin = true;
   constructor(protected buildService: BuildsService,
-              protected headerTalkerService: HeaderTalkerService ) { }
+              private router: Router,
+              protected headerTalkerService: HeaderTalkerService) {}
 
     ngOnInit() {
     this.buildService.getBuilds()
@@ -80,5 +84,13 @@ export class HeaderComponent implements OnInit {
                 return this.data[this.buttonTextIndice].numer;
                 break;
         }
+    }
+
+    passToLogIn() {
+        this.router.navigate(['ingresar']);
+    }
+
+    passToRegister() {
+      this.router.navigate(['registrar']);
     }
 }

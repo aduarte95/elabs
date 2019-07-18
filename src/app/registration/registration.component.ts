@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -24,7 +25,7 @@ export class RegistrationComponent implements OnInit {
 
   passDontMatch = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -58,6 +59,10 @@ export class RegistrationComponent implements OnInit {
 
 
 
+  }
+
+  registrar() {
+    window.location.reload();
   }
 
 }

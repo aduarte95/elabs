@@ -16,6 +16,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 
@@ -31,7 +32,8 @@ import { RegistrationComponent } from './registration/registration.component';
     InicioComponent,
     ReservationComponent,
     LogInComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UserListComponent
 
   ],
     imports: [

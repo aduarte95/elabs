@@ -26,9 +26,25 @@
       <button type="button" class="btn btn-light rightCorner" (click)="right()"><img src="../../assets/Images/rightArrow.png"></button>
     </div>
     <div class="col-sm"></div>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    <form *ngIf="!isLoged" class="form-inline">
+      <button (click)="passToLogIn()"  class="btn btn-outline-light my-2 my-sm-0" type="submit" style="border:0px solid black; background-color: transparent;">
+        <img class="userImage" src="../../assets/Images/User.png" >
+      </button>
+    </form>
+
+    <form *ngIf="isLoged" class="form-inline">
+      <div class="dropdown">
+      <button type="button" class="btn btn-outline-light dropdown-toggle" id="userDropdown" data-toggle="dropdown">Braulio Solano
+        <span class="caret"></span>
+      </button>
+        <div class="dropdown-menu" role="menu" aria-labelledby="userDropdown">
+          <a *ngIf="isAdmin" class="dropdown-item" (click)="passToRegister()" >Registrar Usuario</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" >Salir</a>
+
+        </div>
+      </div>
+
     </form>
   </div>
 </nav>
