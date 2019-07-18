@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HeaderTalkerService} from '../../services/headerTalker/header-talker.service';
 import {LabsServiceService} from '../../services/LabsService/labs-service.service';
 import {ReservationService} from '../../services/reservation/reservation.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -17,7 +18,8 @@ export class InicioComponent implements OnInit {
 
   constructor(private headerTalkerService: HeaderTalkerService,
               private labService: LabsServiceService,
-              private reservationService: ReservationService ) { }
+              private reservationService: ReservationService,
+              private router: Router) { }
 
   ngOnInit() {
     this.estado.set('Disponible', 'btn btn-success');
@@ -67,4 +69,9 @@ export class InicioComponent implements OnInit {
     });
     return promise;
   }
+
+    passToReservation(lab) {
+        this.router.navigate(['reservacion', lab]);
+
+    }
 }

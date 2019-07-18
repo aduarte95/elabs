@@ -22,7 +22,7 @@ export class ReservationComponent implements OnInit {
  actualCellHour;
 
 actualLab;
-labCapacity;
+
 
   weekday = [
       'Domingo',
@@ -111,6 +111,7 @@ labCapacity;
               let date = temporalDate.getFullYear() + '/' + (temporalDate.getMonth() + 1) + '/' + temporalDate.getDate();
               // yourDate.setDate(yourDate.getDate() + 1);
               this.validDate[j] = date;
+              // console.log(this.validDate[j]);
 
 
               if ((j === 0) || ((j === 6) && (i >= 11))) {
@@ -135,9 +136,11 @@ labCapacity;
           for (let k = begin; k < end; k++) {
               let usuario = response.usuarrio;
               let row = this.hourMap.get(k);
-              if(this.validDate.includes(this.getFormatedDate(this.beginDate))) {
+              if (this.validDate.includes(this.getFormatedDate(this.beginDate))) {
+                  console.log('tumama');
                   this.obForMatrix = new Cell(usuario, dia, row, 1, 'prueba', 'prueba');
                   this.matrix[row][dia] = this.obForMatrix;
+                  console.log(this.matrix[row][dia].status);
               }
 
           }
@@ -147,13 +150,17 @@ labCapacity;
   cellComponent(indexR, indexC) {
       let nuevo = new Cell('', 1, 1, 5, '', '');
       nuevo = this.matrix[indexR][indexC];
+      console.log(nuevo.usuario);
       this.actualCellDate = nuevo.date;
       this.actualCellHour = nuevo.hour;
 
   }
 
   getFormatedDate(date) {
-      return date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+      let formatedDate = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+      console.log(formatedDate);
+
+      return formatedDate;
 
 
 }

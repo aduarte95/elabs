@@ -3,8 +3,14 @@
     <div class="card-header">
       <h5 class="card-title" style="text-align: center">Registro</h5>
     </div>
-    <form (submit)="this.onSubmit">
+    <form (submit)="this.onSubmit()">
       <div class="card-body">
+        <p *ngIf="!notUser" style="color: red">Ingrese usuario por favor</p>
+        <p *ngIf="!notPassword " style="color: red">Ingrese contraseña por favor</p>
+        <p *ngIf="!notName" style="color: red">Ingrese nombre por favor</p>
+        <p *ngIf="!passDontMatch" style="color: red">Las contraseñas no coinciden</p>
+        <p *ngIf="!rolUndefined" style="color: red">Defina role por favor</p>
+
         <input [(ngModel)]="user" name="usuario" type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
         <input [(ngModel)]="name" name="nombre" type="text"  class="form-control" placeholder="Nombre" required>
         <input [(ngModel)]="password" name="contrasenha"  type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>

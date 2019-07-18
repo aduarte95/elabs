@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
+
   user = '';
   name = '';
   password = '';
@@ -17,6 +18,7 @@ export class RegistrationComponent implements OnInit {
 
   notUser = true;
   notPassword = true;
+  notName = true;
 
   rolUndefined = true;
 
@@ -32,13 +34,17 @@ export class RegistrationComponent implements OnInit {
     console.log(this.password);
     this.notUser = true;
     this.notPassword = true;
-
+    this.rolUndefined = true;
+    this.passDontMatch = true;
+    this.notName = true;
 
     if ((this.user === undefined) || (this.user === '')) {
       this.notUser = false;
+    } else if ((this.name === undefined) || (this.name === '')) {
+      this.notName = false;
 
     } else if ((this.password === undefined) || (this.password === '')) {
-      
+
       this.notPassword = false;
 
     } else if (this.password !== this.repeatPassword) {

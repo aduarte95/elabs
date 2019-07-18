@@ -8,7 +8,7 @@
       <div class="col-xl-4">
         <ul>
           <a routerLink="/reservacion">
-            <button type="button" class="{{estado.get(lab.estado)}} big-size" >{{lab.numer}}</button>
+            <button (click)="this.passToReservation(lab.numer)" type="button" class="{{estado.get(lab.estado)}} big-size" >{{lab.numer}}</button>
           </a>
         </ul>
       </div>

@@ -11,7 +11,7 @@
     <tbody >
     <tr  *ngFor="let hour of hours; let i = index">
       <th class="right-border-black" scope="row">{{i+7}}:00 - {{i+8}}:00</th>
-      <td (click)="this.cellComponent(i,j)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" data-toggle="modal" data-target="#reservationModal" >{{matrix[i][(dayAsked+j)%7].user}}</td>
+      <td (click)="this.cellComponent(i,(dayAsked+j)%7)" class="{{this.cTd[this.matrix[i][(this.dayAsked+j)%7].status]}} new-border" *ngFor="let day of weekday, let j = index" data-toggle="modal" data-target="#reservationModal" >{{matrix[i][(dayAsked+j)%7].user}}</td>
     </tr>
     </tbody>
   </table>

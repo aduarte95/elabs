@@ -9,10 +9,10 @@ import {ReservationComponent} from './reservation/reservation.component';
 const routes: Routes = [
   { path: 'calendario', component: CalendarComponent },
   {path: 'inicioAdministrador', component: InicioAdministratorComponent},
-  {path: 'inicioComponent', component: InicioComponent},
+  {path: 'inicio', component: InicioComponent},
   {path: 'headerComponent', component: HeaderComponent},
   {path: 'reservacion/:numeroLab', component: ReservationComponent},
-  {path: '', redirectTo: 'inicioAdministrador', pathMatch: 'full'}
+  {path: '', redirectTo: 'inicio', pathMatch: 'full'}
   ];
 
 @NgModule({
