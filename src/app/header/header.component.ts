@@ -93,4 +93,8 @@ export class HeaderComponent implements OnInit {
     passToRegister() {
       this.router.navigate(['registrar']);
     }
+
+    passToUserList() {
+        this.router.navigate(['user-list']);
+    }
 }
