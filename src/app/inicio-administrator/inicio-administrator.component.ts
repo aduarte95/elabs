@@ -38,7 +38,6 @@ export class InicioAdministratorComponent implements OnInit {
   }
 
   changeLab() {
-    alert('hola');
   }
 
   passToReservation(lab) {

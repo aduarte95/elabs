@@ -46,11 +46,9 @@ export class HeaderComponent implements OnInit {
         this.sendBuildsToComponents();
   }
   changeModel(model) {
-    console.log('El modelo es');
-    console.log(model);
+
   }
     sendBuildsToComponents() {
-      console.log('Desde el init');
       console.log(this.buildings[this.buttonTextIndice]);
       this.headerTalkerService.sendBuilds(this.buildings[this.buttonTextIndice]);
     }

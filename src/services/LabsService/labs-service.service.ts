@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {forEach} from '@angular/router/src/utils/collection';
+import {APIurlService} from '../APIurl/apiurl.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LabsServiceService {
 
-  constructor(protected http: HttpClient) { }
+  constructor(protected http: HttpClient, protected apiUrl: APIurlService) { }
 
   getLabs() {
-    return this.http.get('http://localhost:51938/labs');
+    return this.http.get(this.apiUrl.getURL() + '/labs');
   }
 
   getLabsByBuild(build: string ) {
-    return this.http.get('http://localhost:51938/labs/' + build);
+    return this.http.get(this.apiUrl.getURL() + '/labs/' + build);
   }
 }
