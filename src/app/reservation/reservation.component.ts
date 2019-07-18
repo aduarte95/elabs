@@ -1,5 +1,6 @@
 import { Component,  OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {ReservationService} from '../../services/reservation/reservation.service';
 
 
 @Component({
@@ -72,7 +73,8 @@ showEndHour;
 
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private reservationService: ReservationService) { }
 
   ngOnInit() {
     // const d = new Date();
@@ -156,9 +158,15 @@ showEndHour;
       console.log(nuevo.usuario);
       this.actualCellDate = nuevo.date;
       this.actualCellHour = nuevo.hour;
-      this.endHour = this.actualCellHour+1;
+      this.endHour = this.actualCellHour + 1;
+
 
   }
+
+  // reservar() {
+
+    //  this.reservationService.postReservationInsertion('a@h.com', , this.actualLab, 'Viejo', true );
+  // }
 
   getFormatedDate(date) {
       let formatedDate = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();

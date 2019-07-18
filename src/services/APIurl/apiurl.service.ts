@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class APIurlService {
-  private url = 'http://localhost:51938';
-  // private url = 'http://10.1.4.142/elabs';
+  // private url = 'http://localhost:51938';
+  private url = 'http://10.1.4.142/elabs';
 
   constructor() { }
 
