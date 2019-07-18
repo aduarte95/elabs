@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-lab-administrator',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class LabAdministratorComponent implements OnInit {
   chosenType = 0;
   currentDevice = 0;
+
+  actualLab;
 
   deviceType = [
       'Computadora',
@@ -43,9 +47,11 @@ export class LabAdministratorComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let numberLab = parseInt(this.route.snapshot.paramMap.get('numeroLab'));
+    this.actualLab = numberLab;
   }
 
   setChosenType(index) {

@@ -3,6 +3,8 @@ import {HeaderTalkerService} from '../../services/headerTalker/header-talker.ser
 import {LabsServiceService} from '../../services/LabsService/labs-service.service';
 import {ReservationService} from '../../services/reservation/reservation.service';
 import { Router} from '@angular/router';
+
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -12,6 +14,7 @@ export class InicioComponent implements OnInit {
 
   estado = new Map<string, string>();
   public labs = [];
+  isAdmin = true;
 
   private reservations = new Map<string, number>();
 
@@ -73,5 +76,9 @@ export class InicioComponent implements OnInit {
     passToReservation(lab) {
       this.headerTalkerService.reservationsTalks(1, this.labs, lab);
       this.router.navigate(['reservacion', lab]);
+    }
+
+    passToLab(lab) {
+        this.router.navigate(['lab-administrador', lab]);
     }
 }
